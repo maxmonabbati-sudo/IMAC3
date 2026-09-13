@@ -1,5 +1,5 @@
 """
-IMAC3 AI Platform Launcher
+IMAC3 AI Launcher
 """
 
 import uvicorn
