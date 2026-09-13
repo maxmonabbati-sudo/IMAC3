@@ -1,13 +1,12 @@
 """
 IMAC3 AI FastAPI Platform
 
-Public Product Demo
+Public Product Demo API
 """
 
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse
 
-from dashboard.dashboard_demo import dashboard_page
+from src.imac3.config.settings import settings
 
 from src.imac3.core.intelligence_engine import IntelligenceEngine
 from src.imac3.core.decision_engine import DecisionEngine
@@ -17,9 +16,9 @@ from src.imac3.data.intelligence_layer import IntelligenceDataLayer
 
 
 app = FastAPI(
-    title="IMAC3 AI Platform",
-    description="Intelligent Agent & AI Infrastructure Demo",
-    version="0.1.0"
+    title=settings.app_name,
+    version=settings.version,
+    description="IMAC3 AI Intelligent Agent Platform Demo"
 )
 
 
@@ -30,39 +29,40 @@ workflow = WorkflowManager()
 data_layer = IntelligenceDataLayer()
 
 
-@app.get("/", response_class=HTMLResponse)
-def dashboard():
-
-    return dashboard_page()
-
-
-@app.get("/api/status")
-def status():
+@app.get("/")
+def home():
 
     return {
-        "system": "IMAC3 AI",
-        "status": "ONLINE",
-        "version": "0.1.0"
+        "system": settings.app_name,
+        "version": settings.version,
+        "status": settings.api_status,
+        "environment": settings.environment
     }
 
 
-@app.get("/api/agent")
+@app.get("/system")
+def system_status():
+
+    return engine.system_info()
+
+
+@app.get("/agent")
 def agent_status():
 
     return agent.execute(
-        "Intelligent task processing"
+        "AI intelligent task processing"
     )
 
 
-@app.get("/api/decision")
+@app.get("/decision")
 def decision_status():
 
     return decision.analyze(
-        "Business intelligence data"
+        "Business intelligence scenario"
     )
 
 
-@app.get("/api/automation")
+@app.get("/automation")
 def automation_status():
 
     return workflow.execute(
@@ -70,9 +70,15 @@ def automation_status():
     )
 
 
-@app.get("/api/data")
+@app.get("/data")
 def data_status():
 
     return data_layer.analyze(
-        "AI data layer"
+        "Intelligent data layer"
     )
+
+
+@app.get("/config")
+def config_status():
+
+    return settings.info()
