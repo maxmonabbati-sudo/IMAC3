@@ -1,20 +1,24 @@
 # IMAC3 AI
 
-AI Systems Architecture & Intelligent Agent Platform
+## Intelligent Agent & AI Systems Platform
 
-## Overview
+IMAC3 AI is a modular artificial intelligence platform focused on
+AI agents, automation systems, decision intelligence and intelligent
+software infrastructure.
 
-IMAC3 AI is focused on building intelligent systems,
-AI agents, automation and decision-support infrastructure.
+---
 
-## Core Areas
+# Overview
+
+IMAC3 AI demonstrates a modern AI system architecture combining:
 
 - AI Agents
-- Automation Systems
-- Intelligent Architecture
-- Data Processing
-- Software Engineering
+- Decision Intelligence
+- Workflow Automation
+- Data Intelligence
+- FastAPI Services
+- Intelligent Software Components
 
-## Technology
+---
 
-Python | AI | Automation | Systems Design
+# Architecture
