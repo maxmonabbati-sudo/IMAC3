@@ -1,0 +1,11 @@
+[project]
+name = "imac3-ai"
+version = "0.1.0"
+description = "IMAC3 AI Intelligent Agent Platform"
+requires-python = ">=3.10"
+
+dependencies = [
+    "fastapi",
+    "uvicorn",
+    "pydantic"
+]
